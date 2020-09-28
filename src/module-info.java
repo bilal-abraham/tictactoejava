@@ -1,0 +1,9 @@
+module MOOD.tictactoe {
+    requires javafx.controls;
+
+    // Only if FXML is needed
+    requires javafx.fxml;
+    opens org.headroyce.bsea.tictactoe to javafx.fxml;
+
+    exports org.headroyce.bsea.tictactoe;
+}
