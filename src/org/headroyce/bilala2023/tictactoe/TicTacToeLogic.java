@@ -34,12 +34,17 @@ public class TicTacToeLogic {
 		// Turn doesn't change
 		// Can pick the same space twice
 
-        // TODO: Finds if your picking a occupied spot
+        // EDIT: Is your choice on the board
         if (spot < 0 || spot > board.length) {
             return false;
         }
 
-        // TODO: Changes turns
+        // EDIT: Finds if your picking a occupied spot
+        if (board[spot] == 1 || (board[spot] == -1)) {
+            return false;
+        }
+
+        // EDIT: Changes turns
         this.board[spot] = turn;
         turn *= -1;
 
@@ -56,6 +61,8 @@ public class TicTacToeLogic {
         // TODO: Complete this method. Test after each step
 
 		// Check Rows
+        int row = 0;
+        int spot = 0;
 
 		// Check Columns
 
