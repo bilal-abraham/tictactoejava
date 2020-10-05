@@ -1,4 +1,4 @@
-package org.headroyce.bsea.tictactoe;
+package org.headroyce.bilala2023.tictactoe;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -51,6 +51,9 @@ public class TicTacToeGUI extends BorderPane {
      *
      * @return the status bar
      */
+
+    //sets up status bar at the top of the board
+
     private HBox layoutStatus() {
         HBox rtn = new HBox();
 
@@ -130,6 +133,7 @@ public class TicTacToeGUI extends BorderPane {
 
     /**
      * Controller -- handles interaction between the View and the Model
+     * Focus on Action Events
      */
     private class ButtonHandler implements EventHandler<ActionEvent> {
         public void handle(ActionEvent e) {

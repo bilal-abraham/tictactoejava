@@ -1,7 +1,6 @@
-package org.headroyce.bsea.tictactoe;
+package org.headroyce.bilala2023.tictactoe;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -27,7 +26,6 @@ public class Main extends Application {
     }
 
 
-    public static void main(String[] args) {
-        launch(args);
+    public static void main(String[] args) { launch(args);
     }
 }

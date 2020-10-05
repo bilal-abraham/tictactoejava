@@ -3,7 +3,7 @@ module MOOD.tictactoe {
 
     // Only if FXML is needed
     requires javafx.fxml;
-    opens org.headroyce.bsea.tictactoe to javafx.fxml;
+    opens org.headroyce.bilala2023.tictactoe to javafx.fxml;
 
-    exports org.headroyce.bsea.tictactoe;
+    exports org.headroyce.bilala2023.tictactoe;
 }

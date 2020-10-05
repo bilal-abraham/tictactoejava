@@ -1,10 +1,10 @@
-package org.headroyce.bsea.tictactoe;
+package org.headroyce.bilala2023.tictactoe;
 
 public class TicTacToeLogic {
 
     private int[] board;
     private int turn;           // 1 = X, -1 = O
-    private boolean gameOver;
+    private boolean gameOver;   // starts at false
 
     public TicTacToeLogic() {
         board = new int[numRows()*numRows()];
@@ -30,13 +30,20 @@ public class TicTacToeLogic {
      * @return true if a valid is made, false otherwise
      */
     public boolean makeMove(int spot) {
-
         // TODO: Complete Me
 		// Turn doesn't change
 		// Can pick the same space twice
-        this.board[spot] = turn;
 
-        return false;
+        // TODO: Finds if your picking a occupied spot
+        if (spot < 0 || spot > board.length) {
+            return false;
+        }
+
+        // TODO: Changes turns
+        this.board[spot] = turn;
+        turn *= -1;
+
+        return true ;
     }
 
     /**
