@@ -104,7 +104,6 @@ public class TicTacToeGUI extends BorderPane {
                 board[spot].setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
                 GridPane.setFillHeight(board[spot], true);
                 GridPane.setFillWidth(board[spot], true);
-
                 // Connect the Button to its Controller
                 board[spot].setOnAction(new ButtonHandler());
                 boardGUI.add(board[spot], col, row);

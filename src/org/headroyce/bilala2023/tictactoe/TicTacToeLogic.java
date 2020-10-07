@@ -62,7 +62,22 @@ public class TicTacToeLogic {
 
 		// Check Rows
         int row = 0;
-        int spot = 0;
+        while (row < 3) {
+            int sum = 0;
+            int spot = row * 3;
+            while (spot <= 3 * row + 2) {
+                sum = board[spot] + sum;
+                spot = spot + 1;
+            }
+            if (sum == 3) {
+                gameOver = true;
+                return "X" ;
+            } else if (sum == -3) {
+                gameOver = true;
+                return "O" ;
+            }
+            row++;
+        }
 
 		// Check Columns
 
