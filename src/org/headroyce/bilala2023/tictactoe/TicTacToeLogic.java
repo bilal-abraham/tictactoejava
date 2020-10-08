@@ -35,7 +35,7 @@ public class TicTacToeLogic {
 		// Can pick the same space twice
 
         // EDIT: Is your choice on the board
-        if (spot < 0 || spot > board.length) {
+        if (spot < 0 || spot >= board.length) {
             return false;
         }
 
@@ -61,29 +61,43 @@ public class TicTacToeLogic {
         // TODO: Complete this method. Test after each step
 
 		// Check Rows
-        int row = 0;
-        while (row < 3) {
+        for (int row = 0; row < 3; row++) {
             int sum = 0;
             int spot = row * 3;
             while (spot <= 3 * row + 2) {
                 sum = board[spot] + sum;
-                spot = spot + 1;
+                spot++ ;
             }
             if (sum == 3) {
                 gameOver = true;
-                return "X" ;
-            } else if (sum == -3) {
+                return "X";
+            } else if(sum == -3){
                 gameOver = true;
-                return "O" ;
+                return "O";
             }
-            row++;
         }
 
-		// Check Columns
+        // Check Columns
+        for (int column = 0; column < 3; column++) {
+            int sum = 0;
+            int spot = column;
+            while (spot <= column + 6) {
+                sum = board[spot] + sum;
+                spot = spot + 3;
+            }
+            if (sum == 3) {
+                gameOver = true;
+                return "X";
+            }else if (sum == -3) {
+                gameOver = true;
+                return "O";
+            }
+        }
+
 
 		// Check Diagonals
 
-		// Check for NOT a tie
+		// Check for NOT a tie;
 
         return "";
     }

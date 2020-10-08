@@ -68,7 +68,6 @@ public class TicTacToeGUI extends BorderPane {
         Button reset = new Button("Reset");
         reset.setPadding(new Insets(10, 10, 10, 10));
         rtn.getChildren().add(reset);
-
         return rtn;
     }
 
