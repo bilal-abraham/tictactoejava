@@ -16,10 +16,8 @@ public class TicTacToeLogic {
         turn = 1;
         gameOver = false;
 
-        int x = 0;
-        for(int i = 0; i <= board.length; i++ ) {
-            board[i] = x;
-        }
+        board = new int[numRows() * numRows()];
+
     }
 
     public boolean makeMove(int spot) {
@@ -60,7 +58,7 @@ public class TicTacToeLogic {
         }
 
         // Check Columns
-        for (int column = 0; column < 3; column++) {
+        for (int column = 0; column < 3; column++){
             int sum = 0;
             int spot = column;
             while (spot <= column + 6) {
@@ -112,7 +110,7 @@ public class TicTacToeLogic {
 
 
 		// Check for NOT a tie;
-        for (int t = 0; t < board.length ; t ++){
+        for (int t = 0; t < 9 ; t ++){
             if(board [t] == -1 && board [t] == 1) {
                 gameOver = true;
                 return "Tie";
@@ -123,12 +121,7 @@ public class TicTacToeLogic {
         return "";
     }
 
-    /**
-     * Gets the player name of the spot asked
-     *
-     * @param spot the spot to check
-     * @return the name of the player, empty string is the space is not occupied, or null for invalid locations
-     */
+
     public String getPlayer(int spot) {
         if (spot < 0 || spot >= board.length) {
             return null;
