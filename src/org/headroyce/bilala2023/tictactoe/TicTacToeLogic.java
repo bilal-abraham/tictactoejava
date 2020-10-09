@@ -12,28 +12,17 @@ public class TicTacToeLogic {
         reset();
     }
 
-    /**
-     * Resets the board to starting positions
-     */
     public void reset() {
-
         turn = 1;
+        gameOver = false;
 
-        // TODO: Complete this method
-		// Reset the board spaces
+        int x = 0;
+        for(int i = 0; i <= board.length; i++ ) {
+            board[i] = x;
+        }
     }
 
-    /**
-     * Attempts to make a move on the board
-     *
-     * @param spot the location to move [0, (numRows^2)]
-     * @return true if a valid is made, false otherwise
-     */
     public boolean makeMove(int spot) {
-        // TODO: Complete Me
-		// Turn doesn't change
-		// Can pick the same space twice
-
         // EDIT: Is your choice on the board
         if (spot < 0 || spot >= board.length) {
             return false;
@@ -48,17 +37,10 @@ public class TicTacToeLogic {
         this.board[spot] = turn;
         turn *= -1;
 
-        return true ;
+        return true;
     }
 
-    /**
-     * Checks for a winner
-     *
-     * @return the Winner, "TIE" if a tie occurs, or empty string if there is no winner but the game is not over
-     */
     public String checkWinner() {
-
-        // TODO: Complete this method. Test after each step
 
 		// Check Rows
         for (int row = 0; row < 3; row++) {
@@ -88,7 +70,7 @@ public class TicTacToeLogic {
             if (sum == 3) {
                 gameOver = true;
                 return "X";
-            }else if (sum == -3) {
+            } else if (sum == -3) {
                 gameOver = true;
                 return "O";
             }
@@ -96,8 +78,47 @@ public class TicTacToeLogic {
 
 
 		// Check Diagonals
+        for (int d1 = 0; d1 < 3; d1++) {
+            int sum = 0;
+            int spot = 0;
+            while (spot <= 8) {
+                sum = board[spot] + sum;
+                spot = spot + 4 ;
+            }
+            if (sum == 3) {
+                gameOver = true;
+                return "X";
+            } else if(sum == -3){
+                gameOver = true;
+                return "O";
+            }
+        }
+
+        for (int d2 = 0; d2 < 3; d2++) {
+            int sum = 0;
+            int spot = 2;
+            while (spot <= 6) {
+                sum = board[spot] + sum;
+                spot = spot + 2;
+            }
+            if (sum == 3) {
+                gameOver = true;
+                return "X";
+            } else if(sum == -3){
+                gameOver = true;
+                return "O";
+            }
+        }
+
 
 		// Check for NOT a tie;
+        for (int t = 0; t < board.length ; t ++){
+            if(board [t] == -1 && board [t] == 1) {
+                gameOver = true;
+                return "Tie";
+            }
+
+        }
 
         return "";
     }
@@ -126,12 +147,9 @@ public class TicTacToeLogic {
         return 3;
     }
 
-    /**
-     * Is the game over?
-     *
-     * @return true if the game is over, false otherwise
-     */
+
     public boolean isGameOver() {
+        System.out.println("Game Over" + gameOver);
         return gameOver;
     }
 
