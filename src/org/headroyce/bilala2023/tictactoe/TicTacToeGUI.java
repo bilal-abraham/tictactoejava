@@ -62,28 +62,27 @@ public class TicTacToeGUI extends BorderPane {
         turn.setPadding(new Insets(10, 10, 10, 10));
         rtn.getChildren().add(turn);
 
+
         Region spacer = new Region();
         HBox.setHgrow(spacer, Priority.ALWAYS);
         rtn.getChildren().add(spacer);
+
 
         winner = new Label("Winner: ");
         winner.setPadding(new Insets(10, 10, 10, 10));
         rtn.getChildren().add(winner);
 
 
-
-
         Button reset = new Button("Reset");
         reset.setPadding(new Insets(10, 10, 10, 10));
         rtn.getChildren().add(reset);
+
+
+
         return rtn;
     }
 
-    /**
-     * Graphically arranges the playing grid
-     *
-     * @return the graphical Tic Tac Toe board
-     */
+
     private GridPane layoutBoard() {
         /* Setup the board layout */
         GridPane boardGUI = new GridPane();
@@ -119,9 +118,7 @@ public class TicTacToeGUI extends BorderPane {
         return boardGUI;
     }
 
-    /**
-     * Syncs the View with the Model
-     */
+
     public void updateGraphics() {
 
         for (int i = 0; i < board.length; i++) {
@@ -132,16 +129,14 @@ public class TicTacToeGUI extends BorderPane {
         String turn = logic.whoseTurn();
         TicTacToeGUI.this.turn.setText(turn + "'s Turn");
 
+
         String winner = logic.checkWinner();
         TicTacToeGUI.this.winner.setText("Winner:" + winner);
 
 
     }
 
-    /**
-     * Controller -- handles interaction between the View and the Model
-     * Focus on Action Events
-     */
+
     private class ButtonHandler implements EventHandler<ActionEvent> {
         public void handle(ActionEvent e) {
             Button source = (Button) e.getSource();
@@ -153,7 +148,10 @@ public class TicTacToeGUI extends BorderPane {
 
                     // Make a move and check for a winner
                     logic.makeMove(i);
+
+
                     String winner = logic.checkWinner();
+
 
 
                     // Cause the View to update later so that we don't freeze the graphics

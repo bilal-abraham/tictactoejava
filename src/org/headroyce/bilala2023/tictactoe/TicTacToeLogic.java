@@ -23,6 +23,10 @@ public class TicTacToeLogic {
     }
 
     public boolean makeMove(int spot) {
+        if (gameOver == true){
+            return false;
+        }
+
         // EDIT: Is your choice on the board
         if (spot < 0 || spot >= board.length) {
             return false;
@@ -36,6 +40,9 @@ public class TicTacToeLogic {
         // EDIT: Changes turns
         this.board[spot] = turn;
         turn *= -1;
+
+
+
 
         return true;
     }
@@ -78,7 +85,7 @@ public class TicTacToeLogic {
 
 
 		// Check Diagonals
-        for (int d1 = 0; d1 < 3; d1++) {
+        for (int d = 0; d < 3; d++) {
             int sum = 0;
             int spot = 0;
             while (spot <= 8) {
@@ -143,7 +150,6 @@ public class TicTacToeLogic {
 
 
     public boolean isGameOver() {
-        System.out.println("Game Over" + gameOver);
         return gameOver;
     }
 
