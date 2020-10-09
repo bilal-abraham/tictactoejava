@@ -19,6 +19,7 @@ public class TicTacToeGUI extends BorderPane {
     // Graphical elements of the GUI
     private Button[] board;
     private Label turn;
+    private Label winner;
 
     /******************
      *
@@ -64,6 +65,13 @@ public class TicTacToeGUI extends BorderPane {
         Region spacer = new Region();
         HBox.setHgrow(spacer, Priority.ALWAYS);
         rtn.getChildren().add(spacer);
+
+        winner = new Label("Winner: ");
+        winner.setPadding(new Insets(10, 10, 10, 10));
+        rtn.getChildren().add(winner);
+
+
+
 
         Button reset = new Button("Reset");
         reset.setPadding(new Insets(10, 10, 10, 10));
@@ -124,7 +132,8 @@ public class TicTacToeGUI extends BorderPane {
         String turn = logic.whoseTurn();
         TicTacToeGUI.this.turn.setText(turn + "'s Turn");
 
-        // TODO: Replace the console output from the Controller with graphics AFTER your logic works
+        String winner = logic.checkWinner();
+        TicTacToeGUI.this.winner.setText("Winner:" + winner);
 
 
     }
@@ -146,7 +155,6 @@ public class TicTacToeGUI extends BorderPane {
                     logic.makeMove(i);
                     String winner = logic.checkWinner();
 
-                    System.out.println("Winner: " + winner);
 
                     // Cause the View to update later so that we don't freeze the graphics
                     Platform.runLater(new Runnable() {

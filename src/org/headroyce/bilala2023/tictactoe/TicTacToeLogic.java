@@ -4,6 +4,7 @@ public class TicTacToeLogic {
 
     private int[] board;
     private int turn;           // 1 = X, -1 = O
+    private int winner;
     private boolean gameOver;   // starts at false
 
     public TicTacToeLogic() {
@@ -17,6 +18,7 @@ public class TicTacToeLogic {
         gameOver = false;
 
         board = new int[numRows() * numRows()];
+
 
     }
 
@@ -108,18 +110,17 @@ public class TicTacToeLogic {
             }
         }
 
-
-		// Check for NOT a tie;
-        for (int t = 0; t < 9 ; t ++){
-            if(board [t] == -1 && board [t] == 1) {
-                gameOver = true;
-                return "Tie";
+        // NOT TIE
+        for (int tie = 0; tie < 9; tie++) {
+            if (board[tie] == 0) {
+                return " ";
             }
-
         }
 
-        return "";
+        gameOver = true;
+        return "TIE";
     }
+
 
 
     public String getPlayer(int spot) {
