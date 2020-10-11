@@ -68,10 +68,6 @@ public class TicTacToeGUI extends BorderPane {
         rtn.getChildren().add(spacer);
 
 
-        winner = new Label("Winner: ");
-        winner.setPadding(new Insets(10, 10, 10, 10));
-        rtn.getChildren().add(winner);
-
 
         Button reset = new Button("Reset");
         reset.setPadding(new Insets(10, 10, 10, 10));
@@ -131,9 +127,9 @@ public class TicTacToeGUI extends BorderPane {
 
 
         String winner = logic.checkWinner();
-        TicTacToeGUI.this.winner.setText("Winner:" + winner);
-
-
+        if (winner == "X" || winner == "O") {
+            TicTacToeGUI.this.turn.setText("Winner:" + winner);
+        }
     }
 
 
