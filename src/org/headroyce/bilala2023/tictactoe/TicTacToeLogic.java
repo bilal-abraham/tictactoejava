@@ -16,10 +16,7 @@ public class TicTacToeLogic {
     public void reset() {
         turn = 1;
         gameOver = false;
-
         board = new int[numRows() * numRows()];
-
-
     }
 
     public boolean makeMove(int spot) {

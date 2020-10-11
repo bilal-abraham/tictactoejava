@@ -19,7 +19,8 @@ public class TicTacToeGUI extends BorderPane {
     // Graphical elements of the GUI
     private Button[] board;
     private Label turn;
-    private Label winner;
+    private Button reset = new Button("Reset");
+
 
     /******************
      *
@@ -68,11 +69,8 @@ public class TicTacToeGUI extends BorderPane {
         rtn.getChildren().add(spacer);
 
 
-
-        Button reset = new Button("Reset");
         reset.setPadding(new Insets(10, 10, 10, 10));
         rtn.getChildren().add(reset);
-
 
 
         return rtn;
@@ -137,7 +135,12 @@ public class TicTacToeGUI extends BorderPane {
         public void handle(ActionEvent e) {
             Button source = (Button) e.getSource();
 
-            // Figure out which button got pushed
+            if (source == reset){
+                logic.reset();
+                System.out.println("reset clicked");
+            }
+
+            // Figure out which button got pushed if on board
             for (int i = 0; i < board.length; i++) {
                 if (source == board[i]) {
                     // Button i was pressed
@@ -145,10 +148,7 @@ public class TicTacToeGUI extends BorderPane {
                     // Make a move and check for a winner
                     logic.makeMove(i);
 
-
                     String winner = logic.checkWinner();
-
-
 
                     // Cause the View to update later so that we don't freeze the graphics
                     Platform.runLater(new Runnable() {
@@ -160,8 +160,6 @@ public class TicTacToeGUI extends BorderPane {
                 }
             }
         }
-
-
     }
 
 }
