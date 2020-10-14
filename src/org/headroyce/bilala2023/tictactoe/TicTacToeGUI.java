@@ -122,10 +122,9 @@ public class TicTacToeGUI extends BorderPane {
             board[i].setText(who);
         }
 
+
         String turn = logic.whoseTurn();
         TicTacToeGUI.this.turn.setText(turn + "'s Turn");
-
-
         String winner = logic.checkWinner();
         if (winner == "X" || winner == "O") {
             TicTacToeGUI.this.turn.setText("Winner:" + winner);
@@ -139,7 +138,7 @@ public class TicTacToeGUI extends BorderPane {
 
             if (source == reset){
                 logic.reset();
-                System.out.println("Reset");
+                updateGraphics();
             }
 
             // Figure out which button got pushed if on board
@@ -160,8 +159,8 @@ public class TicTacToeGUI extends BorderPane {
                     });
                     break;
                 }
+
             }
         }
     }
-
 }

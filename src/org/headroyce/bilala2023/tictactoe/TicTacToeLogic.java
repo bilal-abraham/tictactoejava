@@ -14,13 +14,13 @@ public class TicTacToeLogic {
     }
 
     public void reset() {
+        board = new int[numRows() * numRows()];
         turn = 1;
         gameOver = false;
-        board = new int[numRows() * numRows()];
     }
 
     public boolean makeMove(int spot) {
-        if (gameOver == true){
+        if (isGameOver()){
             return false;
         }
 
