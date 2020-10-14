@@ -70,6 +70,7 @@ public class TicTacToeGUI extends BorderPane {
 
 
         reset.setPadding(new Insets(10, 10, 10, 10));
+        reset.setOnAction(new ButtonHandler());
         rtn.getChildren().add(reset);
 
 
@@ -107,6 +108,7 @@ public class TicTacToeGUI extends BorderPane {
                 // Connect the Button to its Controller
                 board[spot].setOnAction(new ButtonHandler());
                 boardGUI.add(board[spot], col, row);
+
             }
         }
         return boardGUI;
@@ -137,7 +139,7 @@ public class TicTacToeGUI extends BorderPane {
 
             if (source == reset){
                 logic.reset();
-                System.out.println("reset clicked");
+                System.out.println("Reset");
             }
 
             // Figure out which button got pushed if on board
