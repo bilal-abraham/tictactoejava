@@ -38,9 +38,6 @@ public class TicTacToeLogic {
         this.board[spot] = turn;
         turn *= -1;
 
-
-
-
         return true;
     }
 
