@@ -114,7 +114,7 @@ public class TicTacToeLogic {
         // NOT TIE
         for (int tie = 0; tie < 9; tie++) {
             if (board[tie] == 0) {
-                return " ";
+                return "";
             }
         }
 
