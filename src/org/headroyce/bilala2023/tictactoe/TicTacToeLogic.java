@@ -4,7 +4,6 @@ public class TicTacToeLogic {
 
     private int[] board;
     private int turn;           // 1 = X, -1 = O
-    private int winner;
     private boolean gameOver;   // starts at false
 
     public TicTacToeLogic() {
@@ -143,7 +142,8 @@ public class TicTacToeLogic {
     }
 
 
-    public boolean isGameOver() {
+    public boolean isGameOver() { 
+        
         return gameOver;
     }
 

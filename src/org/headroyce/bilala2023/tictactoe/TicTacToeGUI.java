@@ -7,14 +7,9 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
+import java.io.File;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.scene.media.MediaView;
-import javafx.application.Application;
-import javafx.scene.Group;
-import javafx.stage.Stage;
-
-import java.io.File;
 
 
 /**
@@ -134,9 +129,13 @@ public class TicTacToeGUI extends BorderPane {
 
         String turn = logic.whoseTurn();
         TicTacToeGUI.this.turn.setText(turn + "'s Turn");
+
         String winner = logic.checkWinner();
-        if (winner.equals("X") || winner.equals("O")) {
+        if (winner.equals("X") || winner.equals("O") ) {
             TicTacToeGUI.this.turn.setText("Winner:" + winner);
+        }
+        else if (winner.equals("TIE")){
+            TicTacToeGUI.this.turn.setText(winner);
         }
     }
 
